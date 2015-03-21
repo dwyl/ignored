@@ -1,0 +1,25 @@
+{
+  "name": "ignored",
+  "version": "1.0.0",
+  "description": "ignore files listed in .gitignore",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nelsonic/ignored.git"
+  },
+  "keywords": [
+    "ignore",
+    "list",
+    "of",
+    "files"
+  ],
+  "author": "@nelsonic <contact.nelsonic@gmail.com> (https://github.com/nelsonic)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nelsonic/ignored/issues"
+  },
+  "homepage": "https://github.com/nelsonic/ignored"
+}
