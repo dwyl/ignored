@@ -1,6 +1,8 @@
 # ignored
 Get a **list** of **entries** from your ***.gitignore*** **file**.
 
+![.gitignore me!](http://i.imgur.com/CszskqZ.png)
+
 ## Why?
 
 In the [***faster***](https://github.com/ideaq/faster)
