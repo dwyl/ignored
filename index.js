@@ -83,14 +83,11 @@ module.exports = function ignored(gitignorefile, callback) {
     } else {
       gitignorefile = path.resolve(gitignorefile);
     }
-    console.log("SYNC filename:"+gitignorefile);
-    console.log(' '); // blank line
+    // console.log("SYNC filename:"+gitignorefile);
+    // console.log(' '); // blank line
     return sync(gitignorefile);
   }
-  else {
-    // next check if the gitignorefile parameter was supplied
-    console.log("ASYNC filename:"+gitignorefile);
-    console.log(' '); // blank line
+  else { // the fact that callback exists tells us that gitignorefile is set!
     fs.stat(gitignorefile, function(err, stats){
       if(err) {
         callback(err, []);
