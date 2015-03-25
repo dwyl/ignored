@@ -1,34 +1,6 @@
 var fs   = require('fs');
 var path = require('path');
 
-
-
-/**
- * findgitignorefile does exactly what the name suggests;
- * find .gitignore file to parse. Takes a single parameter (callback).
- * @param {function} callback (Optiona)- called once we find a .gitignore file
- * (or if an error occurs). Your callback should have two arguments:
- *   @param {string} error - an error message or null if no errors.
- *   @param {array} list - a list of entries in the .gitignore
- */
-// function findgitignorefile(callback) {
-//
-// }
-
-/**
- * parsegitignore parses the contents of the .gitignore file we supply
- * Requires two parameters:
- * @param {string} gitignorestr - file descriptor e.g: ./.gitignore
- * @param {function} callback - called once we have a list of entries
- * (or if an error occurs). Your callback should have two arguments:
- *   @param {string} error - an error message or null if no errors.
- *   @param {array} list - a list of entries in the .gitignore
- */
-// function parsegitignore(gitignoredfile, callback) {
-//
-// }
-
-
 /**
  * sync is our synchronous fallback. it returns a List of entries given a
  * .gitignore file to parse. Requires one parameter:
@@ -94,7 +66,7 @@ module.exports = function ignored(gitignorefile, callback) {
       }
       else {
         if(!stats.isFile()) {
-          var error = { msg : "ERROR: Bad .gitignore file!" }
+          var error = { msg : 'ERROR: Bad .gitignore file!', code:'ENOENT' }
           callback(error, []);
         } else {
           fs.readFile(gitignorefile, 'utf8', function gotfile(err, str) {

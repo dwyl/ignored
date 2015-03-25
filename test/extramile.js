@@ -10,13 +10,11 @@ test(cyan('SYNC: with sample .gitignore file and BAD CALLBACK'), function (t) {
   t.end();
 });
 
-
 test(cyan('SYNC: Return error we cannot find the .gitignore file'), function (t) {
   var err = require('../')('../.gitignore'); //
   t.equal(err.code, 'ENOENT', green("✓ no file at: ")+ red(err.path) +green(" (as expected!)") )
   t.end();
 });
-
 
 test(cyan('SYNC: Return error we cannot find the .gitignore file'), function (t) {
   var testdir = path.resolve('./test');
@@ -26,14 +24,3 @@ test(cyan('SYNC: Return error we cannot find the .gitignore file'), function (t)
   t.equal(err, errmsg, green("✓ BAD .gitignore file at: ")+ red(testdir) +green(" (as expected!)") )
   t.end();
 });
-
-// test(cyan('SYNC: Return error we cannot find any .gitignore file'), function (t) {
-//   var ignored = require('./'); // no .gitignore file supplied, we attempt to find it!
-//   ignored(invalid, function(err, list) {
-//     console.log(err);
-//     var errmsg = "Error: basedir param must be a valid directory."
-//     t.equal(err, errmsg, green("✓ ")+ red(errmsg) +green(" (as expected!)") )
-//     t.equal(list.length, 0, green("✓ "+invalid + " is NOT a directory. no further action possible."));
-//     t.end();
-//   });
-// });

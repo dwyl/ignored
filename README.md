@@ -22,6 +22,9 @@ In the [***faster***](https://github.com/ideaq/faster)
  but none were as simple or well-tested as
  we needed, so we wrote our own.
 
+ And because it's *fast*, has *zero dependencies* and (might
+ be) *useful* to others, we have released it as an npm package!
+
 ## What?
 
 This ultra-simple module ***parses*** your **.gitignore** file
@@ -39,7 +42,7 @@ npm install ignored --save
 
 ```js
 var ignored = require('ignored')(__dirname+'/../.gitignore'); // use .gitignore in parent dir
-// use the array of .gitignore entries as desired
+console.log(ignored); // use the array of .gitignore entries as desired
 ```
 *We recommend* using this module * **Sync**hronously* *once* at the top of your file.  
 (it only gets run once at the start-up of your project and only  
