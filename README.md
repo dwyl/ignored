@@ -1,7 +1,11 @@
 # ignored
-Ignore specific files or folders based on .gitignore or other list.
+Get a **list** of **entries** from your ***.gitignore*** **file**.
 
-In our [***faster***](https://github.com/ideaq/faster)
- project we are watching all directories in a project.
+## Why?
 
-Instead we should exclude all files/dis listed in .gitignore file.
+In the [***faster***](https://github.com/ideaq/faster)
+ project we are watching directories for changes,  
+ but we want to ***ignore*** the files/directories
+ listed in the ***.gitignore*** file.
+
+## What?
