@@ -3,8 +3,6 @@ var chalk = require('chalk');
 var red   = chalk.red, green = chalk.green, cyan = chalk.cyan;
 var path  = require('path');
 
-
-
 test(cyan('SYNC: with sample .gitignore file and BAD CALLBACK'), function (t) {
   var ignored = require('../')('./test/Node.gitignore.txt', 'fails'); // .gitignore: http://git.io/jLYB
   // console.log(ignored.length);

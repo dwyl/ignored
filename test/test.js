@@ -18,16 +18,18 @@ var path  = require('path');
 // });
 
 
-// test(cyan('ASYNC: using .gitignore file in parent dir'), function (t) {
-//   var ignored = require('./'); // use the module's method asynchronously
-//   ignored('../.gitignore', function(err, list) {
-//     console.log(err);
-//     // var errmsg = "Error: basedir param must be a valid directory."
-//     // t.equal(err, errmsg, green("✓ ")+ red(errmsg) +green(" (as expected!)") )
-//     t.equal(list.length, 8, green("✓ "+invalid + " is NOT a directory. no further action possible."));
-//     t.end();
-//   });
-// });
+test(cyan('ASYNC: supplying BAD .gitignore file'), function (t) {
+  var ignored = require('../'); // use the module's method asynchronously
+  var gitignorefile = path.resolve('../.gitignore');
+  ignored(gitignorefile, function(err, list) {
+    // console.log(err);
+    // console.log(list);
+    // var errmsg = "Error: basedir param must be a valid directory."
+    // t.equal(err, errmsg, green("✓ ")+ red(errmsg) +green(" (as expected!)") )
+    t.equal(err.code, 'ENOENT', green("✓ "+gitignorefile + " is NOT valid."));
+    t.end();
+  });
+});
 
 
 // var invalid = path.join(__dirname +"/invalid");

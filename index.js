@@ -89,26 +89,33 @@ module.exports = function ignored(gitignorefile, callback) {
   }
   else {
     // next check if the gitignorefile parameter was supplied
-    if(!gitignorefile) {
-      findgitignorefile(function found(err, str){
-        if(err) {
+    console.log("ASYNC filename:"+gitignorefile);
+    console.log(' '); // blank line
+    fs.stat(gitignorefile, function(err, stats){
+      if(err) {
+        callback(err, []);
+      }
+      else {
+        if(!stats.isFile()) {
+          var err = { msg : "ERROR: Bad .gitignore file!" }
           callback(err, []);
+        } else {
+          fs.readFile(gitignorefile, 'utf8', function gotfile(err, str) {
+            var list = [];
+            var lines = str.split('\n');
+            lines.forEach(function(line) {
+              line = line.trim();
+              if(line.charAt(0) === '#' || line.length === 0) {
+                // ignore comment and empty lines
+              }
+              else {
+                list.push(line);
+              }
+            });
+            callback(null, list);
+          }); // end fs.readFile
         }
-        else {
-          return parsegitignore(str, callback);
-        }
-      });
-    }
+      }
+    }); // end fs.stat
   }
-  // // next check if the gitignorefile parameter was supplied
-  // if(!gitignorefile) { // || typeof gitignorefile !== 'function') {
-  //   // determine if the method was called without a callback
-  //   if(!callback) { // called synchrnously
-  //
-  //   }
-  //   else {
-  //
-  //   }
-  //
-  // }
 }

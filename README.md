@@ -128,10 +128,11 @@ So we tried a few:
 + **fstream-ignore**: https://www.npmjs.com/package/fstream-ignore
 (streaming is great, but complicates things here...)
 + **ignore**: https://www.npmjs.com/package/ignore
-(too many options! no simple "no-brainer" usage)
+(*way* too many options! no simple "no-brainer" usage)
 + **gitignore-parser**: https://www.npmjs.com/package/gitignore-parser
 (strange interface and lacks documentation)
 + **parse-gitignore**: https://www.npmjs.com/package/parse-gitignore
 (no async method/interface and expects you to supply the .gitignore file contents)
 
-(Once again), none of these were simple, well-tested or documented enough for our liking.
+(*Once again*) none of these were *simple*, (sufficiently) well-tested
+or clearly documented for our liking.
