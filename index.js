@@ -11,9 +11,9 @@ var path = require('path');
  *   @param {string} error - an error message or null if no errors.
  *   @param {array} list - a list of entries in the .gitignore
  */
-function findgitignorefile(callback) {
-
-}
+// function findgitignorefile(callback) {
+//
+// }
 
 /**
  * parsegitignore parses the contents of the .gitignore file we supply
@@ -24,9 +24,9 @@ function findgitignorefile(callback) {
  *   @param {string} error - an error message or null if no errors.
  *   @param {array} list - a list of entries in the .gitignore
  */
-function parsegitignore(gitignoredfile, callback) {
-
-}
+// function parsegitignore(gitignoredfile, callback) {
+//
+// }
 
 
 /**
@@ -97,8 +97,8 @@ module.exports = function ignored(gitignorefile, callback) {
       }
       else {
         if(!stats.isFile()) {
-          var err = { msg : "ERROR: Bad .gitignore file!" }
-          callback(err, []);
+          var error = { msg : "ERROR: Bad .gitignore file!" }
+          callback(error, []);
         } else {
           fs.readFile(gitignorefile, 'utf8', function gotfile(err, str) {
             var list = [];

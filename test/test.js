@@ -22,16 +22,30 @@ test(cyan('ASYNC: supplying BAD .gitignore file'), function (t) {
   var ignored = require('../'); // use the module's method asynchronously
   var gitignorefile = path.resolve('../.gitignore');
   ignored(gitignorefile, function(err, list) {
-    // console.log(err);
-    // console.log(list);
-    // var errmsg = "Error: basedir param must be a valid directory."
-    // t.equal(err, errmsg, green("✓ ")+ red(errmsg) +green(" (as expected!)") )
-    t.equal(err.code, 'ENOENT', green("✓ "+gitignorefile + " is NOT valid."));
+    t.equal(err.code, 'ENOENT', green("✓ "+red(gitignorefile) + " is NOT valid."));
+    t.end();
+  });
+});
+
+test(cyan('ASYNC: with VALID .gitignore file'), function (t) {
+  var ignored = require('../'); // use the module's method asynchronously
+  var gitignorefile = path.resolve('./.gitignore');
+  ignored(gitignorefile, function(err, list) {
+    t.equal(err, null, green("✓ got "+cyan(list.length) + " items in "+gitignorefile));
     t.end();
   });
 });
 
 
+test(cyan('ASYNC: supplying a DIRECTORY instead of a .gitignore file'), function (t) {
+  var ignored = require('../'); // use the module's method asynchronously
+  var gitignorefile = path.resolve('./test');
+  var errmsg = "ERROR: Bad .gitignore file!"
+  ignored(gitignorefile, function(err, list) {
+    t.equal(err.msg, errmsg, green("✓ "+red(gitignorefile) + " is NOT valid."));
+    t.end();
+  });
+});
 // var invalid = path.join(__dirname +"/invalid");
 // test(cyan('SYNC: Return error we cannot find any .gitignore file'), function (t) {
 //   var ignored = require('./'); // no .gitignore file supplied, we attempt to find it!

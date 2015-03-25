@@ -1,6 +1,6 @@
 {
   "name": "ignored",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ignore files listed in .gitignore",
   "main": "index.js",
   "directories": {
