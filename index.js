@@ -38,18 +38,30 @@ function parsegitignore(gitignoredfile, callback) {
  */
 function sync(gitignorefile) {
   var list = [];
-  var str = fs.readFileSync(gitignorefile, 'utf8');
-  var lines = str.split('\n');
-  lines.forEach(function(line) {
-    line = line.trim();
-    if(line.charAt(0) === '#' || line.length === 0) {
-      // ignore comment and empty lines
+  // check if the file is valid:
+  try {
+    var stats = fs.lstatSync(gitignorefile);
+    if (stats.isFile()) {
+      var str = fs.readFileSync(gitignorefile, 'utf8');
+      var lines = str.split('\n');
+      lines.forEach(function(line) {
+        line = line.trim();
+        if(line.charAt(0) === '#' || line.length === 0) {
+          // ignore comment and empty lines
+        }
+        else {
+          list.push(line);
+        }
+      });
+      return list;
     }
     else {
-      list.push(line);
+      return "ERROR: Bad .gitignore file!";
     }
-  });
-  return list;
+  }
+  catch (e) {
+      return e;
+  }
 }
 
 /**
@@ -68,11 +80,11 @@ module.exports = function ignored(gitignorefile, callback) {
   if(!callback || typeof callback !== 'function') {
     if(!gitignorefile) { // attempt to find .gitignore file in parent dir:
       gitignorefile = path.resolve("./.gitignore");
-      console.log("SYNC filename:"+gitignorefile);
-      console.log(' '); // blank line
     } else {
-      // we have the file so no need to resolve it
+      gitignorefile = path.resolve(gitignorefile);
     }
+    console.log("SYNC filename:"+gitignorefile);
+    console.log(' '); // blank line
     return sync(gitignorefile);
   }
   else {
