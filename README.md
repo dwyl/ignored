@@ -1,5 +1,5 @@
 # ignored
-Get a **list** of **entries** from your ***.gitignore*** **file**.
+Get a **list** of **entries** from ***.gitignore*** **file**.
 
 ![.gitignore me!](http://i.imgur.com/CszskqZ.png)
 
@@ -9,6 +9,11 @@ In the [***faster***](https://github.com/ideaq/faster)
  project we are watching directories for changes,  
  but we want to ***ignore*** the files/directories
  listed in the ***.gitignore*** file.
+
+ There were a couple of options parsing .gitignore files on NPM
+ see *Research* section below,  
+ but none were as simple or well-tested as
+ we needed, so we wrote our own.
 
 ## What?
 
@@ -110,3 +115,23 @@ If you spot an inefficiency or omission in the parser, please help us fix it!
 
 If anything is unclear please create an [**issue**](https://github.com/nelsonic/ignored/issues)
 so we can help clarify.
+
+## Research
+
+As always with NPM, there are *many* available modules
+that *could* do what we want:
+
+![npm-search-for-gitignore](https://cloud.githubusercontent.com/assets/194400/6828867/dce60fa8-d307-11e4-8517-b4fd89062863.png)
+
+So we tried a few:
+
++ **fstream-ignore**: https://www.npmjs.com/package/fstream-ignore
+(streaming is great, but complicates things here...)
++ **ignore**: https://www.npmjs.com/package/ignore
+(too many options! no simple "no-brainer" usage)
++ **gitignore-parser**: https://www.npmjs.com/package/gitignore-parser
+(strange interface and lacks documentation)
++ **parse-gitignore**: https://www.npmjs.com/package/parse-gitignore
+(no async method/interface and expects you to supply the .gitignore file contents)
+
+(Once again), none of these were simple, well-tested or documented enough for our liking.
