@@ -57,7 +57,7 @@ There are actually ***3 ways*** to use this module in your code:
 
 The **simplest way** to use this module is to let it figure out where your
 project's .gitignore  
-file is and return the list ***syncronously*** at the
+file is and return the list ***synchronously*** at the
 top of your script.
 
 ```js
