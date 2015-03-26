@@ -1,6 +1,6 @@
 {
   "name": "ignored",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "List all entries in .gitignore as an array",
   "main": "index.js",
   "directories": {
