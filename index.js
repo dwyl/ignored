@@ -6,14 +6,14 @@ var path = require('path');
  * .gitignore file to parse. Requires one parameter:
  * @param {string} gitignorefile - file descriptor e.g: ./.gitignore
  * Note: there is no Public interface for this method! it gets called
- * when no callback method is supplied.
+ * when no callback is supplied to ignored method (see below).
+ * returs an error Object if an error occurs.
  */
 function sync(gitignorefile) {
   var list = [];
-  // check if the file is valid:
-  try {
+  try {  // first check file actually exists
     var stats = fs.lstatSync(gitignorefile);
-    if (stats.isFile()) {
+    if (stats.isFile()) { // if its not a valid file return an error
       var str = fs.readFileSync(gitignorefile, 'utf8');
       var lines = str.split('\n');
       lines.forEach(function(line) {
@@ -28,7 +28,7 @@ function sync(gitignorefile) {
       return list;
     }
     else {
-      return "ERROR: Bad .gitignore file!";
+      return { msg : 'ERROR: Bad .gitignore file!', code:'ENOENT' };
     }
   }
   catch (e) {

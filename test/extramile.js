@@ -21,6 +21,6 @@ test(cyan('SYNC: Return error we cannot find the .gitignore file'), function (t)
   console.log("testdir: " + red(testdir));
   var errmsg = "ERROR: Bad .gitignore file!"
   var err = require('../')(testdir); // supply a directory instead of a .gitignore file!
-  t.equal(err, errmsg, green("✓ BAD .gitignore file at: ")+ red(testdir) +green(" (as expected!)") )
+  t.equal(err.msg, errmsg, green("✓ BAD .gitignore file at: ")+ red(testdir) +green(" (as expected!)") )
   t.end();
 });
