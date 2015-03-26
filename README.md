@@ -1,6 +1,13 @@
 # ignored
 Get a **list** of **entries** from ***.gitignore*** **file**.
 
+[![Build Status](https://travis-ci.org/nelsonic/ignored.svg)](https://travis-ci.org/nelsonic/ignored)
+[![Code Climate](https://codeclimate.com/github/nelsonic/ignored/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/ignored)
+[![Test Coverage](https://codeclimate.com/github/nelsonic/ignored/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/ignored)
+[![npm version](https://badge.fury.io/js/listdirs.svg)](http://badge.fury.io/js/listdirs)
+[![Node.js Version][node-version-image]][node-version-url]
+[![Dependency Status](https://david-dm.org/nelsonic/ignored.svg)](https://david-dm.org/nelsonic/ignored)
+
 ![.gitignore me!](http://i.imgur.com/CszskqZ.png)
 
 ## Why?
@@ -15,9 +22,12 @@ In the [***faster***](https://github.com/ideaq/faster)
  but none were as simple or well-tested as
  we needed, so we wrote our own.
 
+ And because it's *fast*, has *zero dependencies* and (might
+ be) *useful* to others, we have released it as an npm package!
+
 ## What?
 
-This ultra-simple module simply ***parses*** your **.gitignore** file
+This ultra-simple module ***parses*** your **.gitignore** file
 and gives you an **list** (array) of the items it finds.
 
 ## Usage
@@ -31,22 +41,23 @@ npm install ignored --save
 ### In Your Code
 
 ```js
-var ignored = require('ignored')('../.gitignore'); // use .gitignore in parent dir
-// use the array of .gitignore entries as desired
+var ignored = require('ignored')(__dirname+'/../.gitignore'); // use .gitignore in parent dir
+console.log(ignored); // use the array of .gitignore entries as desired
 ```
-*We recommend* using this module ***Sync**hronously* once at the top of your file.  
+*We recommend* using this module * **Sync**hronously* *once* at the top of your file    
 (it only gets run once at the start-up of your project and only  
 takes a couple of milliseconds, similar to a `require` call).
 
 <br />
 - - -
 
-There are actually ***4 ways*** to use this module in your project:
+There are actually ***3 ways*** to use this module in your code:
 
 #### 1. Sync (*Without* passing a .gitignore file as parameter)
 
 The **simplest way** to use this module is to let it figure out where your
-project's .gitignore file is and return the list ***syncronously*** at the
+project's .gitignore  
+file is and return the list ***synchronously*** at the
 top of your script.
 
 ```js
@@ -54,7 +65,7 @@ top of your script.
 var ignored = require('ignored')(); // without param (we search for .gitignore)
 // use the array of .gitignore entries as desired
 ```
-***Note***: we only go *one* directory level up form the
+***Note***: we only go *one* directory level up from the
 *Current Working Directory* as *most*  
 node projects have a *shallow*
 directory structure e.g. put code in a **lib/** or **src/**.
@@ -71,24 +82,7 @@ var ignored = require('ignored')('../.gitignore'); // use .gitignore in parent d
 // use the array of .gitignore entries as desired
 ```
 
-#### 3. *Async* (*Without* passing a .gitignore file as parameter)
-
-```js
-// async without supplying a .gitignore file
-var ignored = require('ignored')
-ignored(function callback(err, list) { // callback is the only param!
-  if(err){
-    console.log(err); // handle errors in your preferred way.
-  }
-  else {
-    console.log(list); // use the array of directories as required.
-  }
-});
-// use the array of .gitignore entries as desired
-```
-
-
-#### 4. *Async* (Specifying a .gitignore file as first parameter)
+#### 3. *Async* (Specifying the .gitignore file as first parameter)
 
 ```js
 // async passing in a specific .gitignore file:
@@ -106,7 +100,7 @@ ignored('../.gitignore', function callback(err, list) {
 ```
 
 
-## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/nelsonic/fork)
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/ignored/fork)
 
 ***All*** *contributions* are *welcome*.  
 We have done our best to make this module functional, simple and easy to understand.  
@@ -118,8 +112,7 @@ so we can help clarify.
 
 ## Research
 
-As always with NPM, there are *many* available modules
-that *could* do what we want:
+As always with NPM, there are *many* available modules that *could* do what we want:
 
 ![npm-search-for-gitignore](https://cloud.githubusercontent.com/assets/194400/6828867/dce60fa8-d307-11e4-8517-b4fd89062863.png)
 
@@ -134,5 +127,7 @@ So we tried a few:
 + **parse-gitignore**: https://www.npmjs.com/package/parse-gitignore
 (no async method/interface and expects you to supply the .gitignore file contents)
 
-(*Once again*) none of these were *simple*, (sufficiently) well-tested
-or clearly documented for our liking.
+(*Once again*) none of these were *simple*, (sufficiently) well-tested or clearly documented for our liking.
+
+[node-version-image]: https://img.shields.io/node/v/ignored.svg?style=flat
+[node-version-url]: http://nodejs.org/download/

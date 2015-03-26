@@ -1,6 +1,6 @@
 {
   "asi"           : true,
-  "laxbreak"      : true,
+  "laxbreak"      : false,
   "bitwise"       : true,
   "boss"          : false,
   "curly"         : true,

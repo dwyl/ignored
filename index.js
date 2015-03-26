@@ -1,47 +1,19 @@
 var fs   = require('fs');
 var path = require('path');
 
-
-
-/**
- * findgitignorefile does exactly what the name suggests;
- * find .gitignore file to parse. Takes a single parameter (callback).
- * @param {function} callback (Optiona)- called once we find a .gitignore file
- * (or if an error occurs). Your callback should have two arguments:
- *   @param {string} error - an error message or null if no errors.
- *   @param {array} list - a list of entries in the .gitignore
- */
-// function findgitignorefile(callback) {
-//
-// }
-
-/**
- * parsegitignore parses the contents of the .gitignore file we supply
- * Requires two parameters:
- * @param {string} gitignorestr - file descriptor e.g: ./.gitignore
- * @param {function} callback - called once we have a list of entries
- * (or if an error occurs). Your callback should have two arguments:
- *   @param {string} error - an error message or null if no errors.
- *   @param {array} list - a list of entries in the .gitignore
- */
-// function parsegitignore(gitignoredfile, callback) {
-//
-// }
-
-
 /**
  * sync is our synchronous fallback. it returns a List of entries given a
  * .gitignore file to parse. Requires one parameter:
  * @param {string} gitignorefile - file descriptor e.g: ./.gitignore
  * Note: there is no Public interface for this method! it gets called
- * when no callback method is supplied.
+ * when no callback is supplied to ignored method (see below).
+ * returs an error Object if an error occurs.
  */
 function sync(gitignorefile) {
   var list = [];
-  // check if the file is valid:
-  try {
+  try {  // first check file actually exists
     var stats = fs.lstatSync(gitignorefile);
-    if (stats.isFile()) {
+    if (stats.isFile()) { // if its not a valid file return an error
       var str = fs.readFileSync(gitignorefile, 'utf8');
       var lines = str.split('\n');
       lines.forEach(function(line) {
@@ -56,7 +28,7 @@ function sync(gitignorefile) {
       return list;
     }
     else {
-      return "ERROR: Bad .gitignore file!";
+      return { msg : 'ERROR: Bad .gitignore file!', code:'ENOENT' };
     }
   }
   catch (e) {
@@ -83,21 +55,18 @@ module.exports = function ignored(gitignorefile, callback) {
     } else {
       gitignorefile = path.resolve(gitignorefile);
     }
-    console.log("SYNC filename:"+gitignorefile);
-    console.log(' '); // blank line
+    // console.log("SYNC filename:"+gitignorefile);
+    // console.log(' '); // blank line
     return sync(gitignorefile);
   }
-  else {
-    // next check if the gitignorefile parameter was supplied
-    console.log("ASYNC filename:"+gitignorefile);
-    console.log(' '); // blank line
+  else { // the fact that callback exists tells us that gitignorefile is set!
     fs.stat(gitignorefile, function(err, stats){
       if(err) {
         callback(err, []);
       }
       else {
         if(!stats.isFile()) {
-          var error = { msg : "ERROR: Bad .gitignore file!" }
+          var error = { msg : 'ERROR: Bad .gitignore file!', code:'ENOENT' }
           callback(error, []);
         } else {
           fs.readFile(gitignorefile, 'utf8', function gotfile(err, str) {

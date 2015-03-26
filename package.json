@@ -1,17 +1,17 @@
 {
   "name": "ignored",
-  "version": "1.0.5",
-  "description": "ignore files listed in .gitignore",
+  "version": "2.0.2",
+  "description": "List all entries in .gitignore as an array",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "quick": "./node_modules/tape/bin/tape ./test/*/*.js",
+    "quick": "./node_modules/tape/bin/tape ./test/*.js",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.js",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.js && ./node_modules/.bin/istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
     "jshint": "./node_modules/jshint/bin/jshint -c .jshintrc --exclude-path .gitignore .",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=ee15cc1e740638c273889ceb2cf1e3b2769697a6860760ba40c4df328e2a5a90 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info"
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=fb9dcab099e98c1a202417cfae9607e5620fa24a46db58421e0fb654afa827c8 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info"
   },
   "repository": {
     "type": "git",
