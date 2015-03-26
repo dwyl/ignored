@@ -44,7 +44,7 @@ npm install ignored --save
 var ignored = require('ignored')(__dirname+'/../.gitignore'); // use .gitignore in parent dir
 console.log(ignored); // use the array of .gitignore entries as desired
 ```
-*We recommend* using this module * **Sync**hronously* *once* at the top of your file.  
+*We recommend* using this module * **Sync**hronously* *once* at the top of your file    
 (it only gets run once at the start-up of your project and only  
 takes a couple of milliseconds, similar to a `require` call).
 
@@ -65,7 +65,7 @@ top of your script.
 var ignored = require('ignored')(); // without param (we search for .gitignore)
 // use the array of .gitignore entries as desired
 ```
-***Note***: we only go *one* directory level up form the
+***Note***: we only go *one* directory level up from the
 *Current Working Directory* as *most*  
 node projects have a *shallow*
 directory structure e.g. put code in a **lib/** or **src/**.
@@ -100,7 +100,7 @@ ignored('../.gitignore', function callback(err, list) {
 ```
 
 
-## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/nelsonic/fork)
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/ignored/fork)
 
 ***All*** *contributions* are *welcome*.  
 We have done our best to make this module functional, simple and easy to understand.  
@@ -112,8 +112,7 @@ so we can help clarify.
 
 ## Research
 
-As always with NPM, there are *many* available modules
-that *could* do what we want:
+As always with NPM, there are *many* available modules that *could* do what we want:
 
 ![npm-search-for-gitignore](https://cloud.githubusercontent.com/assets/194400/6828867/dce60fa8-d307-11e4-8517-b4fd89062863.png)
 
@@ -128,8 +127,7 @@ So we tried a few:
 + **parse-gitignore**: https://www.npmjs.com/package/parse-gitignore
 (no async method/interface and expects you to supply the .gitignore file contents)
 
-(*Once again*) none of these were *simple*, (sufficiently) well-tested
-or clearly documented for our liking.
+(*Once again*) none of these were *simple*, (sufficiently) well-tested or clearly documented for our liking.
 
 [node-version-image]: https://img.shields.io/node/v/ignored.svg?style=flat
 [node-version-url]: http://nodejs.org/download/
