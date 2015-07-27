@@ -1,6 +1,6 @@
 {
   "name": "ignored",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "List all entries in .gitignore as an array",
   "main": "index.js",
   "directories": {
@@ -31,12 +31,12 @@
   "homepage": "https://github.com/dwylignored",
   "devDependencies": {
     "chalk": "^1.0.0",
-    "codeclimate-test-reporter": "0.0.4",
-    "istanbul": "^0.3.4",
-    "jshint": "^2.5.10",
-    "mkdirp": "^0.5.0",
-    "pre-commit": "0.0.9",
-    "tape": "^3.0.3"
+    "codeclimate-test-reporter": "^0.1.0",
+    "istanbul": "^0.3.17",
+    "jshint": "^2.8.0",
+    "mkdirp": "^0.5.1",
+    "pre-commit": "1.0.10",
+    "tape": "^4.0.1"
   },
   "pre-commit": [
     "jshint",

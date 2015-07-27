@@ -1,12 +1,12 @@
 # ignored
 Get a **list** of **entries** from ***.gitignore*** **file**.
 
-[![Build Status](https://travis-ci.org/dwylignored.svg)](https://travis-ci.org/dwylignored)
-[![Code Climate](https://codeclimate.com/github/dwylignored/badges/gpa.svg)](https://codeclimate.com/github/dwylignored)
-[![Test Coverage](https://codeclimate.com/github/dwylignored/badges/coverage.svg)](https://codeclimate.com/github/dwylignored)
+[![Build Status](https://travis-ci.org/dwyl/ignored.svg)](https://travis-ci.org/dwyl/ignored)
+[![Code Climate](https://codeclimate.com/github/dwyl/ignored/badges/gpa.svg)](https://codeclimate.com/github/dwyl/ignored)
+[![Test Coverage](https://codeclimate.com/github/dwyl/ignored/badges/coverage.svg)](https://codeclimate.com/github/dwyl/ignored)
 [![npm version](https://badge.fury.io/js/listdirs.svg)](http://badge.fury.io/js/listdirs)
 [![Node.js Version][node-version-image]][node-version-url]
-[![Dependency Status](https://david-dm.org/dwylignored.svg)](https://david-dm.org/dwylignored)
+[![Dependency Status](https://david-dm.org/dwyl/ignored.svg)](https://david-dm.org/dwyl/ignored)
 
 ![.gitignore me!](http://i.imgur.com/CszskqZ.png)
 
@@ -100,15 +100,19 @@ ignored('../.gitignore', function callback(err, list) {
 ```
 
 
-## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwylignored/fork)
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/ignored/fork)
 
 ***All*** *contributions* are *welcome*.  
 We have done our best to make this module functional, simple and easy to understand.  
 If you spot an inefficiency or omission in the parser, please help us fix it!  
-(*please create an [**issue**](https://github.com/dwylignored/issues) to inform us!*)
+(*please create an [**issue**](https://github.com/dwyl/ignored/issues) to inform us!*)
 
-If anything is unclear please create an [**issue**](https://github.com/dwylignored/issues)
+If anything is unclear please create an [**issue**](https://github.com/dwyl/ignored/issues)
 so we can help clarify.
+
+### devDependencies [![devDependency Status](https://david-dm.org/dwyl/ignored/dev-status.svg)](https://david-dm.org/dwyl/ignored#info=devDependencies)
+
+> Feel free to submit a Pull Request if these are out of date. (_thanks!_)
 
 ## Research
 
