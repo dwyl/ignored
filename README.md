@@ -1,12 +1,12 @@
 # ignored
 Get a **list** of **entries** from ***.gitignore*** **file**.
 
-[![Build Status](https://travis-ci.org/nelsonic/ignored.svg)](https://travis-ci.org/nelsonic/ignored)
-[![Code Climate](https://codeclimate.com/github/nelsonic/ignored/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/ignored)
-[![Test Coverage](https://codeclimate.com/github/nelsonic/ignored/badges/coverage.svg)](https://codeclimate.com/github/nelsonic/ignored)
+[![Build Status](https://travis-ci.org/dwylignored.svg)](https://travis-ci.org/dwylignored)
+[![Code Climate](https://codeclimate.com/github/dwylignored/badges/gpa.svg)](https://codeclimate.com/github/dwylignored)
+[![Test Coverage](https://codeclimate.com/github/dwylignored/badges/coverage.svg)](https://codeclimate.com/github/dwylignored)
 [![npm version](https://badge.fury.io/js/listdirs.svg)](http://badge.fury.io/js/listdirs)
 [![Node.js Version][node-version-image]][node-version-url]
-[![Dependency Status](https://david-dm.org/nelsonic/ignored.svg)](https://david-dm.org/nelsonic/ignored)
+[![Dependency Status](https://david-dm.org/dwylignored.svg)](https://david-dm.org/dwylignored)
 
 ![.gitignore me!](http://i.imgur.com/CszskqZ.png)
 
@@ -44,7 +44,7 @@ npm install ignored --save
 var ignored = require('ignored')(__dirname+'/../.gitignore'); // use .gitignore in parent dir
 console.log(ignored); // use the array of .gitignore entries as desired
 ```
-*We recommend* using this module * **Sync**hronously* *once* at the top of your file    
+*We recommend* using this module * **Sync**hronously* *once* at the top of your file
 (it only gets run once at the start-up of your project and only  
 takes a couple of milliseconds, similar to a `require` call).
 
@@ -100,14 +100,14 @@ ignored('../.gitignore', function callback(err, list) {
 ```
 
 
-## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nelsonic/ignored/fork)
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwylignored/fork)
 
 ***All*** *contributions* are *welcome*.  
 We have done our best to make this module functional, simple and easy to understand.  
 If you spot an inefficiency or omission in the parser, please help us fix it!  
-(*please create an [**issue**](https://github.com/nelsonic/ignored/issues) to inform us!*)
+(*please create an [**issue**](https://github.com/dwylignored/issues) to inform us!*)
 
-If anything is unclear please create an [**issue**](https://github.com/nelsonic/ignored/issues)
+If anything is unclear please create an [**issue**](https://github.com/dwylignored/issues)
 so we can help clarify.
 
 ## Research
