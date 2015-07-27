@@ -11,11 +11,11 @@
     "test": "./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.js",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.js && ./node_modules/.bin/istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
     "jshint": "./node_modules/jshint/bin/jshint -c .jshintrc --exclude-path .gitignore .",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=fb9dcab099e98c1a202417cfae9607e5620fa24a46db58421e0fb654afa827c8 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info"
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=69bee72a237d135b0a794c13a06b662e080ae9e884f250b5ec1debd5d1e04224 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nelsonic/ignored.git"
+    "url": "https://github.com/dwylignored.git"
   },
   "keywords": [
     "parse",
@@ -26,9 +26,9 @@
   "author": "@nelsonic <contact.nelsonic@gmail.com> (https://github.com/nelsonic)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nelsonic/ignored/issues"
+    "url": "https://github.com/dwylignored/issues"
   },
-  "homepage": "https://github.com/nelsonic/ignored",
+  "homepage": "https://github.com/dwylignored",
   "devDependencies": {
     "chalk": "^1.0.0",
     "codeclimate-test-reporter": "0.0.4",
